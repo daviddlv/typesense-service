@@ -13,17 +13,8 @@ endpoints:
 
 services:
   typesense:
-    image: typesense/typesense:0.23.1
+    build: .
     volumes:
-      - typesense:/tmp
+      - typesense:/data
     ports:
       - 8108:8108
-    command:
-      - "--data-dir=/tmp"
-      - "--api-key=${TYPESENSE_API_KEY}"
-      - "--enable-cors"
-    healthcheck:
-      test: ["CMD", "curl -f http://localhost:8108 || exit 1"]
-      timeout: 30s
-      interval: 1m
-      retries: 3
