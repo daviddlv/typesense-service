@@ -19,9 +19,9 @@ services:
     ports:
       - 8108:8108
     command:
-      - '--data-dir=/data'
-      - '--api-key=Hu52dwsas2AdxdE'
-      - '--enable-cors'
+      - "--data-dir=/data"
+      - "--api-key=${TYPESENSE_API_KEY}"
+      - "--enable-cors"
     healthcheck:
       test: ["CMD", "curl -f http://localhost:8108 || exit 1"]
       timeout: 30s
