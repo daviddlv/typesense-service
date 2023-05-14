@@ -15,11 +15,11 @@ services:
   typesense:
     image: typesense/typesense:0.23.1
     volumes:
-      - typesense:/data
+      - typesense:/tmp
     ports:
       - 8108:8108
     command:
-      - "--data-dir=/data"
+      - "--data-dir=/tmp"
       - "--api-key=${TYPESENSE_API_KEY}"
       - "--enable-cors"
     healthcheck:
